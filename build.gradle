@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    // NOTE no longer need with Android Studio 3.0+ (s2 2018)
+    // edited by Caspar
+    // see https://developer.android.com/studio/build/index.html
+    // buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "mad.topic2"
+        minSdkVersion 11
+        // so we don't need to use runtime permissions for the CallBroadcastReceiver
+        targetSdkVersion 22
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:support-fragment:25.4.0'
+}
